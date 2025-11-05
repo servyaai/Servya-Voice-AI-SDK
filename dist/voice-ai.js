@@ -8666,7 +8666,7 @@ const Kc = {
   ...Kc,
   ...Dc,
   ...qc
-}, T3 = /* @__PURE__ */ $a($c, a7), b2 = "https://voicesdkbackend.servya.io", Xc = "gpt-realtime-mini", Jc = "https://eastus2.realtimeapi-preview.ai.azure.com/v1/realtimertc?model=gpt-realtime", Yc = "liveVoice", Qc = "cartesiaTTS", Zc = ({ voiceProvider: e, ttsProvider: t, llmModel: n }) => {
+}, T3 = /* @__PURE__ */ $a($c, a7), b2 = "https://agentbackend.servya.io", Xc = "gpt-realtime-mini", Jc = "https://eastus2.realtimeapi-preview.ai.azure.com/v1/realtimertc?model=gpt-realtime", Yc = "liveVoice", Qc = "cartesiaTTS", Zc = ({ voiceProvider: e, ttsProvider: t, llmModel: n }) => {
   const s = t === "openai" ? ["text", "audio"] : ["text"], i = n || Xc, o = {
     type: e === "azure_live" ? "azure_semantic_vad" : "server_vad",
     threshold: e === "azure_live" ? 0.3 : 0.5,
