@@ -8974,7 +8974,7 @@ const Bl = {
   ...Bl,
   ...xl,
   ...Nl
-}, E3 = /* @__PURE__ */ U7(Ul, Z7), w2 = "http://localhost:3100", jl = "gpt-realtime-mini", Wl = "liveVoice", zl = "cartesiaTTS", Hl = ({ voiceProvider: e, ttsProvider: t, llmModel: n }) => {
+}, E3 = /* @__PURE__ */ U7(Ul, Z7), w2 = "https://agentbackend.servya.io", jl = "gpt-realtime-mini", Wl = "liveVoice", zl = "cartesiaTTS", Hl = ({ voiceProvider: e, ttsProvider: t, llmModel: n }) => {
   const s = t === "openai" ? ["text", "audio"] : ["text"], i = n || jl, o = {
     type: e === "azure_live" ? "azure_semantic_vad" : "server_vad",
     threshold: e === "azure_live" ? 0.3 : 0.5,
