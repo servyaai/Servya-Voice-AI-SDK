@@ -12177,7 +12177,8 @@ const r8 = ({ dataChannelRef: e, peerRef: t, audioElementRef: n, micStreamRef: s
           display: "flex",
           alignItems: "center",
           backgroundColor: n,
-          borderRadius: "9999px"
+          borderRadius: "9999px",
+          zIndex: 9999
         },
         children: [
           /* @__PURE__ */ n1(
