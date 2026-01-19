@@ -493,14 +493,14 @@ self instanceof WorkerGlobalScope && typeof self.importScripts == "function", A6
   hasStandardBrowserWebWorkerEnv: E6,
   navigator: Mt,
   origin: A6
-}, Symbol.toStringTag, { value: "Module" })), S1 = {
+}, Symbol.toStringTag, { value: "Module" })), E1 = {
   ...x6,
   ...C6
 };
 function M6(e, t) {
-  return M0(e, new S1.classes.URLSearchParams(), {
+  return M0(e, new E1.classes.URLSearchParams(), {
     visitor: function(n, s, i, o) {
-      return S1.isNode && E.isBuffer(n) ? (this.append(s, n.toString("base64")), !1) : o.defaultVisitor.apply(this, arguments);
+      return E1.isNode && E.isBuffer(n) ? (this.append(s, n.toString("base64")), !1) : o.defaultVisitor.apply(this, arguments);
     },
     ...t
   });
@@ -595,8 +595,8 @@ const B3 = {
   maxContentLength: -1,
   maxBodyLength: -1,
   env: {
-    FormData: S1.classes.FormData,
-    Blob: S1.classes.Blob
+    FormData: E1.classes.FormData,
+    Blob: E1.classes.Blob
   },
   validateStatus: function(t) {
     return t >= 200 && t < 300;
@@ -896,10 +896,10 @@ const g0 = (e, t, n = 3) => {
     total: e,
     loaded: s
   }), t[1]];
-}, E4 = (e) => (...t) => E.asap(() => e(...t)), j6 = S1.hasStandardBrowserEnv ? /* @__PURE__ */ ((e, t) => (n) => (n = new URL(n, S1.origin), e.protocol === n.protocol && e.host === n.host && (t || e.port === n.port)))(
-  new URL(S1.origin),
-  S1.navigator && /(msie|trident)/i.test(S1.navigator.userAgent)
-) : () => !0, W6 = S1.hasStandardBrowserEnv ? (
+}, E4 = (e) => (...t) => E.asap(() => e(...t)), j6 = E1.hasStandardBrowserEnv ? /* @__PURE__ */ ((e, t) => (n) => (n = new URL(n, E1.origin), e.protocol === n.protocol && e.host === n.host && (t || e.port === n.port)))(
+  new URL(E1.origin),
+  E1.navigator && /(msie|trident)/i.test(E1.navigator.userAgent)
+) : () => !0, W6 = E1.hasStandardBrowserEnv ? (
   // Standard browser envs support document.cookie
   {
     write(e, t, n, s, i, o, r) {
@@ -1010,7 +1010,7 @@ const Mn = (e) => {
     "Authorization",
     "Basic " + btoa((a.username || "") + ":" + (a.password ? unescape(encodeURIComponent(a.password)) : ""))
   ), E.isFormData(n)) {
-    if (S1.hasStandardBrowserEnv || S1.hasStandardBrowserWebWorkerEnv)
+    if (E1.hasStandardBrowserEnv || E1.hasStandardBrowserWebWorkerEnv)
       r.setContentType(void 0);
     else if (E.isFunction(n.getHeaders)) {
       const c = n.getHeaders(), d = ["content-type", "content-length"];
@@ -1019,7 +1019,7 @@ const Mn = (e) => {
       });
     }
   }
-  if (S1.hasStandardBrowserEnv && (s && E.isFunction(s) && (s = s(t)), s || s !== !1 && j6(t.url))) {
+  if (E1.hasStandardBrowserEnv && (s && E.isFunction(s) && (s = s(t)), s || s !== !1 && j6(t.url))) {
     const c = i && o && W6.read(o);
     c && r.set(i, c);
   }
@@ -1076,7 +1076,7 @@ const Mn = (e) => {
       b && (s(!T || T.type ? new s3(null, e, b) : T), b.abort(), b = null);
     }, i.cancelToken && i.cancelToken.subscribe(h), i.signal && (i.signal.aborted ? h() : i.signal.addEventListener("abort", h)));
     const S = B6(i.url);
-    if (S && S1.protocols.indexOf(S) === -1) {
+    if (S && E1.protocols.indexOf(S) === -1) {
       s(new j("Unsupported protocol " + S + ":", j.ERR_BAD_REQUEST, e));
       return;
     }
@@ -1183,7 +1183,7 @@ const Mn = (e) => {
     return !1;
   const a = i && Z3(L4), c = i && (typeof P4 == "function" ? /* @__PURE__ */ ((v) => (w) => v.encode(w))(new P4()) : async (v) => new Uint8Array(await new n(v).arrayBuffer())), d = o && a && I4(() => {
     let v = !1;
-    const w = new n(S1.origin, {
+    const w = new n(E1.origin, {
       body: new L4(),
       method: "POST",
       get duplex() {
@@ -1208,7 +1208,7 @@ const Mn = (e) => {
     if (E.isBlob(v))
       return v.size;
     if (E.isSpecCompliantForm(v))
-      return (await new n(S1.origin, {
+      return (await new n(E1.origin, {
         method: "POST",
         body: v
       }).arrayBuffer()).byteLength;
@@ -1243,17 +1243,17 @@ const Mn = (e) => {
     let c1;
     try {
       if (k && d && b !== "get" && b !== "head" && (c1 = await _(O, A)) !== 0) {
-        let C1 = new n(w, {
+        let S1 = new n(w, {
           method: "POST",
           body: A,
           duplex: "half"
         }), R1;
-        if (E.isFormData(A) && (R1 = C1.headers.get("content-type")) && O.setContentType(R1), C1.body) {
-          const [B1, A1] = S4(
+        if (E.isFormData(A) && (R1 = S1.headers.get("content-type")) && O.setContentType(R1), S1.body) {
+          const [B1, b1] = S4(
             c1,
             g0(E4(k))
           );
-          A = x4(C1.body, M4, B1, A1);
+          A = x4(S1.body, M4, B1, b1);
         }
       }
       E.isString(V) || (V = V ? "include" : "omit");
@@ -1268,27 +1268,27 @@ const Mn = (e) => {
       };
       R = o && new n(w, z);
       let H = await (o ? J(R, W) : J(w, z));
-      const T1 = h && (L === "stream" || L === "response");
-      if (h && (P || T1 && t1)) {
-        const C1 = {};
+      const C1 = h && (L === "stream" || L === "response");
+      if (h && (P || C1 && t1)) {
+        const S1 = {};
         ["status", "statusText", "headers"].forEach((Y) => {
-          C1[Y] = H[Y];
+          S1[Y] = H[Y];
         });
-        const R1 = E.toFiniteNumber(H.headers.get("content-length")), [B1, A1] = P && S4(
+        const R1 = E.toFiniteNumber(H.headers.get("content-length")), [B1, b1] = P && S4(
           R1,
           g0(E4(P), !0)
         ) || [];
         H = new s(
           x4(H.body, M4, B1, () => {
-            A1 && A1(), t1 && t1();
+            b1 && b1(), t1 && t1();
           }),
-          C1
+          S1
         );
       }
       L = L || "text";
       let P1 = await f[E.findKey(f, L) || "text"](H, v);
-      return !T1 && t1 && t1(), await new Promise((C1, R1) => {
-        An(C1, R1, {
+      return !C1 && t1 && t1(), await new Promise((S1, R1) => {
+        An(S1, R1, {
           data: P1,
           headers: O1.from(H.headers),
           status: H.status,
@@ -2226,7 +2226,7 @@ var Wo = Object.defineProperty, zo = (e, t, n) => t in e ? Wo(e, t, { enumerable
       throw (u = i.onAbort) == null || u.call(i, l), l = "Aborted(" + l + ")", m(l), w = !0, l = new WebAssembly.RuntimeError(l + ". Build with -sASSERTIONS for more info."), r(l), l;
     }
     var z = (l) => l.startsWith("data:application/octet-stream;base64,"), H;
-    async function T1(l) {
+    async function C1(l) {
       if (!_) try {
         var u = await f(l);
         return new Uint8Array(u);
@@ -2238,13 +2238,13 @@ var Wo = Object.defineProperty, zo = (e, t, n) => t in e ? Wo(e, t, { enumerable
     }
     async function P1(l, u) {
       try {
-        var p = await T1(l);
+        var p = await C1(l);
         return await WebAssembly.instantiate(p, u);
       } catch (g) {
         m(`failed to asynchronously prepare wasm: ${g}`), Q(g);
       }
     }
-    async function C1(l) {
+    async function S1(l) {
       var u = H;
       if (!_ && typeof WebAssembly.instantiateStreaming == "function" && !z(u) && typeof fetch == "function") try {
         var p = fetch(u, { credentials: "same-origin" });
@@ -2261,7 +2261,7 @@ var Wo = Object.defineProperty, zo = (e, t, n) => t in e ? Wo(e, t, { enumerable
     }
     var B1 = (l) => {
       for (; 0 < l.length; ) l.shift()(i);
-    }, A1 = i.noExitRuntime || !0, Y = typeof TextDecoder < "u" ? new TextDecoder() : void 0, p1 = (l = 0, u = NaN) => {
+    }, b1 = i.noExitRuntime || !0, Y = typeof TextDecoder < "u" ? new TextDecoder() : void 0, p1 = (l = 0, u = NaN) => {
       var p = S, g = l + u;
       for (u = l; p[u] && !(u >= g); ) ++u;
       if (16 < u - l && p.buffer && Y) return Y.decode(p.subarray(l, u));
@@ -2336,7 +2336,7 @@ var Wo = Object.defineProperty, zo = (e, t, n) => t in e ? Wo(e, t, { enumerable
           y[D] = K1[M], ++I, I === C.length && g(y);
         }));
       }), C.length === 0 && g(y);
-    }, Qe, b1 = (l) => {
+    }, Qe, w1 = (l) => {
       for (var u = ""; S[l]; ) u += Qe[S[l++]];
       return u;
     }, $;
@@ -2463,13 +2463,13 @@ var Wo = Object.defineProperty, zo = (e, t, n) => t in e ? Wo(e, t, { enumerable
       if (!i.hasOwnProperty(l)) throw new l3("Replacing nonexistent public symbol");
       i[l].Ea !== void 0 && p !== void 0 ? i[l].Ea[p] = u : (i[l] = u, i[l].Na = p);
     }, U1, Yi = (l, u, p = []) => (l.includes("j") ? (l = l.replace(/p/g, "i"), u = (0, i["dynCall_" + l])(u, ...p)) : u = U1.get(u)(...p), u), Xi = (l, u) => (...p) => Yi(l, u, p), x1 = (l, u) => {
-      l = b1(l);
+      l = w1(l);
       var p = l.includes("j") ? Xi(l, u) : U1.get(u);
       if (typeof p != "function") throw new $(`unknown function pointer with signature ${l}: ${u}`);
       return p;
     }, i4, r4 = (l) => {
       l = m4(l);
-      var u = b1(l);
+      var u = w1(l);
       return g2(l), u;
     }, K3 = (l, u) => {
       function p(C) {
@@ -2639,10 +2639,10 @@ var Wo = Object.defineProperty, zo = (e, t, n) => t in e ? Wo(e, t, { enumerable
       if (!(l instanceof R1 || l == "unwind")) throw l;
     }, h4 = (l) => {
       var u;
-      throw b = l, A1 || 0 < J0 || ((u = i.onExit) == null || u.call(i, l), w = !0), new R1(l);
+      throw b = l, b1 || 0 < J0 || ((u = i.onExit) == null || u.call(i, l), w = !0), new R1(l);
     }, dr = (l) => {
       if (!w) try {
-        if (l(), !(A1 || 0 < J0)) try {
+        if (l(), !(b1 || 0 < J0)) try {
           b = l = b, h4(l);
         } catch (u) {
           u4(u);
@@ -2754,7 +2754,7 @@ var Wo = Object.defineProperty, zo = (e, t, n) => t in e ? Wo(e, t, { enumerable
       });
     }, F: () => {
     }, _: (l, u, p, g) => {
-      u = b1(u), J1(l, { name: u, fromWireType: function(y) {
+      u = w1(u), J1(l, { name: u, fromWireType: function(y) {
         return !!y;
       }, toWireType: function(y, C) {
         return C ? p : g;
@@ -2762,7 +2762,7 @@ var Wo = Object.defineProperty, zo = (e, t, n) => t in e ? Wo(e, t, { enumerable
         return this.fromWireType(S[y]);
       }, Ja: null });
     }, m: (l, u, p, g, y, C, I, M, D, B, F, X, s1) => {
-      F = b1(F), C = x1(y, C), M && (M = x1(I, M)), B && (B = x1(D, B)), s1 = x1(X, s1);
+      F = w1(F), C = x1(y, C), M && (M = x1(I, M)), B && (B = x1(D, B)), s1 = x1(X, s1);
       var D1 = $i(F);
       W0(D1, function() {
         K3(`Cannot construct ${F} due to unbound types`, [g]);
@@ -2797,7 +2797,7 @@ var Wo = Object.defineProperty, zo = (e, t, n) => t in e ? Wo(e, t, { enumerable
       });
     }, d: (l, u, p, g, y, C, I, M) => {
       var D = H0(p, g);
-      u = b1(u), u = o4(u), C = x1(y, C), T2([], [l], (B) => {
+      u = w1(u), u = o4(u), C = x1(y, C), T2([], [l], (B) => {
         function F() {
           K3(`Cannot call ${X} due to unbound types`, D);
         }
@@ -2810,22 +2810,22 @@ var Wo = Object.defineProperty, zo = (e, t, n) => t in e ? Wo(e, t, { enumerable
     }, Y: (l) => J1(l, a4), D: (l, u, p, g) => {
       function y() {
       }
-      u = b1(u), y.values = {}, J1(l, { name: u, constructor: y, fromWireType: function(C) {
+      u = w1(u), y.values = {}, J1(l, { name: u, constructor: y, fromWireType: function(C) {
         return this.constructor.values[C];
       }, toWireType: (C, I) => I.value, Ia: 8, readValueFromPointer: Zi(u, p, g), Ja: null }), W0(u, y);
     }, l: (l, u, p) => {
       var g = Y3(l, "enum");
-      u = b1(u), l = g.constructor, g = Object.create(g.constructor.prototype, { value: { value: p }, constructor: { value: h3(`${g.name}_${u}`, function() {
+      u = w1(u), l = g.constructor, g = Object.create(g.constructor.prototype, { value: { value: p }, constructor: { value: h3(`${g.name}_${u}`, function() {
       }) } }), l.values[p] = g, l[u] = g;
     }, A: (l, u, p) => {
-      u = b1(u), J1(l, { name: u, fromWireType: (g) => g, toWireType: (g, y) => y, Ia: 8, readValueFromPointer: tr(u, p), Ja: null });
+      u = w1(u), J1(l, { name: u, fromWireType: (g) => g, toWireType: (g, y) => y, Ia: 8, readValueFromPointer: tr(u, p), Ja: null });
     }, v: (l, u, p, g, y, C) => {
       var I = H0(u, p);
-      l = b1(l), l = o4(l), y = x1(g, y), W0(l, function() {
+      l = w1(l), l = o4(l), y = x1(g, y), W0(l, function() {
         K3(`Cannot call ${l} due to unbound types`, I);
       }, u - 1), T2([], I, (M) => (s4(l, $0(l, [M[0], null].concat(M.slice(1)), null, y, C), u - 1), []));
     }, n: (l, u, p, g, y) => {
-      if (u = b1(u), y === -1 && (y = 4294967295), y = (M) => M, g === 0) {
+      if (u = w1(u), y === -1 && (y = 4294967295), y = (M) => M, g === 0) {
         var C = 32 - 8 * p;
         y = (M) => M << C >>> C;
       }
@@ -2840,13 +2840,13 @@ var Wo = Object.defineProperty, zo = (e, t, n) => t in e ? Wo(e, t, { enumerable
         return new y(A.buffer, k[C + 4 >> 2], k[C >> 2]);
       }
       var y = [Int8Array, Uint8Array, Int16Array, Uint16Array, Int32Array, Uint32Array, Float32Array, Float64Array][u];
-      p = b1(p), J1(l, { name: p, fromWireType: g, Ia: 8, readValueFromPointer: g }, { hb: !0 });
+      p = w1(p), J1(l, { name: p, fromWireType: g, Ia: 8, readValueFromPointer: g }, { hb: !0 });
     }, q: (l) => {
       J1(l, nr);
     }, u: (l, u, p, g, y, C, I, M, D, B, F, X) => {
-      p = b1(p), C = x1(y, C), M = x1(I, M), B = x1(D, B), X = x1(F, X), T2([l], [u], (s1) => (s1 = s1[0], [new d3(p, s1.Ba, !1, !1, !0, s1, g, C, M, B, X)]));
+      p = w1(p), C = x1(y, C), M = x1(I, M), B = x1(D, B), X = x1(F, X), T2([l], [u], (s1) => (s1 = s1[0], [new d3(p, s1.Ba, !1, !1, !0, s1, g, C, M, B, X)]));
     }, Z: (l, u) => {
-      u = b1(u), J1(l, { name: u, fromWireType: function(p) {
+      u = w1(u), J1(l, { name: u, fromWireType: function(p) {
         for (var g = k[p >> 2], y = p + 4, C, I = y, M = 0; M <= g; ++M) {
           var D = y + M;
           (M == g || S[D] == 0) && (I = I ? p1(I, D - I) : "", C === void 0 ? C = I : (C += "\0", C += I), I = D + 1);
@@ -2873,7 +2873,7 @@ var Wo = Object.defineProperty, zo = (e, t, n) => t in e ? Wo(e, t, { enumerable
         g2(p);
       } });
     }, y: (l, u, p) => {
-      if (p = b1(p), u === 2) var g = sr, y = ir, C = rr, I = (M) => x[M >> 1];
+      if (p = w1(p), u === 2) var g = sr, y = ir, C = rr, I = (M) => x[M >> 1];
       else u === 4 && (g = or, y = ar, C = cr, I = (M) => k[M >> 2]);
       J1(l, { name: p, fromWireType: (M) => {
         for (var D = k[M >> 2], B, F = M + 4, X = 0; X <= D; ++X) {
@@ -2889,15 +2889,15 @@ var Wo = Object.defineProperty, zo = (e, t, n) => t in e ? Wo(e, t, { enumerable
         g2(M);
       } });
     }, x: (l, u, p, g, y, C) => {
-      p2[l] = { name: b1(u), Ua: x1(p, g), Ka: x1(y, C), Xa: [] };
+      p2[l] = { name: w1(u), Ua: x1(p, g), Ka: x1(y, C), Xa: [] };
     }, i: (l, u, p, g, y, C, I, M, D, B) => {
-      p2[l].Xa.push({ ab: b1(u), gb: p, eb: x1(g, y), fb: C, mb: I, lb: x1(M, D), nb: B });
+      p2[l].Xa.push({ ab: w1(u), gb: p, eb: x1(g, y), fb: C, mb: I, lb: x1(M, D), nb: B });
     }, $: (l, u) => {
-      u = b1(u), J1(l, { pb: !0, name: u, Ia: 0, fromWireType: () => {
+      u = w1(u), J1(l, { pb: !0, name: u, Ia: 0, fromWireType: () => {
       }, toWireType: () => {
       } });
     }, K: () => {
-      A1 = !1, J0 = 0;
+      b1 = !1, J0 = 0;
     }, I: () => {
       throw 1 / 0;
     }, C: (l, u, p) => (l = H2(l), u = Y3(u, "emval::as"), l4(u, p, l)), p: (l, u, p, g) => (l = Y0[l], u = H2(u), l(null, u, p, g)), W: G0, E: (l, u) => (l = H2(l), u = H2(u), l == u), o: (l, u, p) => {
@@ -2972,7 +2972,7 @@ var Wo = Object.defineProperty, zo = (e, t, n) => t in e ? Wo(e, t, { enumerable
       }
       H ?? (H = z("DotLottiePlayer.wasm") ? "DotLottiePlayer.wasm" : i.locateFile ? i.locateFile("DotLottiePlayer.wasm", h) : h + "DotLottiePlayer.wasm");
       try {
-        var p = await C1(u);
+        var p = await S1(u);
         return l(p.instance), p;
       } catch (y) {
         r(y);
@@ -4446,13 +4446,13 @@ function cs(e, t) {
       r[e0[x]].cancel(T);
   }, state: i, steps: r };
 }
-const { schedule: l1, cancel: E2, state: w1, steps: ct } = /* @__PURE__ */ cs(typeof requestAnimationFrame < "u" ? requestAnimationFrame : q1, !0);
+const { schedule: l1, cancel: E2, state: T1, steps: ct } = /* @__PURE__ */ cs(typeof requestAnimationFrame < "u" ? requestAnimationFrame : q1, !0);
 let l0;
 function w5() {
   l0 = void 0;
 }
 const I1 = {
-  now: () => (l0 === void 0 && I1.set(w1.isProcessing || b2.useManualTiming ? w1.timestamp : performance.now()), l0),
+  now: () => (l0 === void 0 && I1.set(T1.isProcessing || b2.useManualTiming ? T1.timestamp : performance.now()), l0),
   set: (e) => {
     l0 = e, queueMicrotask(w5);
   }
@@ -4654,7 +4654,7 @@ const $5 = (e) => {
      * If we're processing this frame we can use the
      * framelocked timestamp to keep things in sync.
      */
-    now: () => w1.isProcessing ? w1.timestamp : I1.now()
+    now: () => T1.isProcessing ? T1.timestamp : I1.now()
   };
 }, ys = (e, t, n = 10) => {
   let s = "";
@@ -6129,7 +6129,7 @@ function Fs(e) {
 function r7(e) {
   return Fs(e) && e.tagName === "svg";
 }
-const E1 = (e) => !!(e && e.getVelocity), o7 = [...Ls, g1, A2], a7 = (e) => o7.find(Ms(e)), Vs = f2({
+const A1 = (e) => !!(e && e.getVelocity), o7 = [...Ls, g1, A2], a7 = (e) => o7.find(Ms(e)), Vs = f2({
   transformPagePoint: (e) => e,
   isStatic: !1,
   reducedMotion: "never"
@@ -6328,7 +6328,7 @@ const je = () => ({
 });
 function Ws(e, t, n) {
   for (const s in t)
-    !E1(t[s]) && !js(s, n) && (e[s] = t[s]);
+    !A1(t[s]) && !js(s, n) && (e[s] = t[s]);
 }
 function _7({ transformTemplate: e }, t) {
   return S0(() => {
@@ -6442,7 +6442,7 @@ function We(e) {
   );
 }
 function x7(e, t, n, { latestValues: s }, i, o = !1) {
-  const a = (We(e) ? E7 : w7)(t, s, i, e), c = d7(t, typeof e == "string", o), d = e !== ln ? { ...c, ...a, ref: n } : {}, { children: h } = t, f = S0(() => E1(h) ? h.get() : h, [h]);
+  const a = (We(e) ? E7 : w7)(t, s, i, e), c = d7(t, typeof e == "string", o), d = e !== ln ? { ...c, ...a, ref: n } : {}, { children: h } = t, f = S0(() => A1(h) ? h.get() : h, [h]);
   return Ar(e, {
     ...d,
     children: f
@@ -6466,7 +6466,7 @@ function ze(e, t, n, s) {
   return t;
 }
 function h0(e) {
-  return E1(e) ? e.get() : e;
+  return A1(e) ? e.get() : e;
 }
 function M7({ scrapeMotionValuesFromProps: e, createRenderState: t }, n, s, i) {
   return {
@@ -6513,7 +6513,7 @@ function He(e, t, n) {
   var o;
   const { style: s } = e, i = {};
   for (const r in s)
-    (E1(s[r]) || t.style && E1(t.style[r]) || js(r, e) || ((o = n == null ? void 0 : n.getValue(r)) == null ? void 0 : o.liveStyle) !== void 0) && (i[r] = s[r]);
+    (A1(s[r]) || t.style && A1(t.style[r]) || js(r, e) || ((o = n == null ? void 0 : n.getValue(r)) == null ? void 0 : o.liveStyle) !== void 0) && (i[r] = s[r]);
   return i;
 }
 const P7 = /* @__PURE__ */ qs({
@@ -6523,7 +6523,7 @@ const P7 = /* @__PURE__ */ qs({
 function Gs(e, t, n) {
   const s = He(e, t, n);
   for (const i in e)
-    if (E1(e[i]) || E1(t[i])) {
+    if (A1(e[i]) || A1(t[i])) {
       const o = o3.indexOf(i) !== -1 ? "attr" + i.charAt(0).toUpperCase() + i.substring(1) : i;
       s[o] = e[i];
     }
@@ -6762,9 +6762,9 @@ const q7 = /* @__PURE__ */ new WeakMap();
 function G7(e, t, n) {
   for (const s in t) {
     const i = t[s], o = n[s];
-    if (E1(i))
+    if (A1(i))
       e.addValue(s, i);
-    else if (E1(o))
+    else if (A1(o))
       e.addValue(s, t3(i, { owner: e }));
     else if (o !== i)
       if (e.hasValue(s)) {
@@ -6811,7 +6811,7 @@ class K7 {
     const { willChange: h, ...f } = this.scrapeMotionValuesFromProps(n, {}, this);
     for (const m in f) {
       const _ = f[m];
-      c[m] !== void 0 && E1(_) && _.set(c[m]);
+      c[m] !== void 0 && A1(_) && _.set(c[m]);
     }
   }
   mount(t) {
@@ -6957,7 +6957,7 @@ class K7 {
    */
   readValue(t, n) {
     let s = this.latestValues[t] !== void 0 || !this.current ? this.latestValues[t] : this.getBaseTargetFromProps(this.props, t) ?? this.readValueFromInstance(this.current, t, this.options);
-    return s != null && (typeof s == "string" && (Kn(s) || Yn(s)) ? s = parseFloat(s) : !a7(s) && A2.test(n) && (s = Is(t, n)), this.setBaseTarget(t, E1(s) ? s.get() : s)), E1(s) ? s.get() : s;
+    return s != null && (typeof s == "string" && (Kn(s) || Yn(s)) ? s = parseFloat(s) : !a7(s) && A2.test(n) && (s = Is(t, n)), this.setBaseTarget(t, A1(s) ? s.get() : s)), A1(s) ? s.get() : s;
   }
   /**
    * Set the base target to later animate back to. This is currently
@@ -6981,7 +6981,7 @@ class K7 {
     if (n && s !== void 0)
       return s;
     const i = this.getBaseTargetFromProps(this.props, t);
-    return i !== void 0 && !E1(i) ? i : this.initialValues[t] !== void 0 && s === void 0 ? void 0 : this.baseTarget[t];
+    return i !== void 0 && !A1(i) ? i : this.initialValues[t] !== void 0 && s === void 0 ? void 0 : this.baseTarget[t];
   }
   on(t, n) {
     return this.events[t] || (this.events[t] = new be()), this.events[t].add(n);
@@ -7009,7 +7009,7 @@ class ni extends K7 {
   handleChildMotionValue() {
     this.childSubscription && (this.childSubscription(), delete this.childSubscription);
     const { children: t } = this.props;
-    E1(t) && (this.childSubscription = t.on("change", (n) => {
+    A1(t) && (this.childSubscription = t.on("change", (n) => {
       this.current && (this.current.textContent = `${n}`);
     }));
   }
@@ -7130,7 +7130,7 @@ function nc(e, t) {
   }
 }
 function sc(e) {
-  return !!(E1(e) && e.add);
+  return !!(A1(e) && e.add);
 }
 function Qt(e, t) {
   const n = e.getValue("willChange");
@@ -7355,21 +7355,21 @@ function _c(e) {
         H && (H.liveStyle = !1);
       };
       for (const z in R) {
-        const H = J[z], T1 = a1[z];
+        const H = J[z], C1 = a1[z];
         if (_.hasOwnProperty(z))
           continue;
         let P1 = !1;
-        Xt(H) && Xt(T1) ? P1 = !ci(H, T1) : P1 = H !== T1, P1 ? H != null ? t1(z) : m.add(z) : H !== void 0 && m.has(z) ? t1(z) : S.protectedKeys[z] = !0;
+        Xt(H) && Xt(C1) ? P1 = !ci(H, C1) : P1 = H !== C1, P1 ? H != null ? t1(z) : m.add(z) : H !== void 0 && m.has(z) ? t1(z) : S.protectedKeys[z] = !0;
       }
       S.prevProp = T, S.prevResolvedValues = J, S.isActive && (_ = { ..._, ...J }), s && e.blockInitialAnimation && (O = !1);
       const c1 = k && L;
       O && (!c1 || V) && f.push(...W.map((z) => {
         const H = { type: A };
         if (typeof z == "string" && s && !c1 && e.manuallyAnimateOnMount && e.parent) {
-          const { parent: T1 } = e, P1 = Q2(T1, z);
-          if (T1.enteringChildren && P1) {
-            const { delayChildren: C1 } = P1.transition || {};
-            H.delay = ai(T1.enteringChildren, e, C1);
+          const { parent: C1 } = e, P1 = Q2(C1, z);
+          if (C1.enteringChildren && P1) {
+            const { delayChildren: S1 } = P1.transition || {};
+            H.delay = ai(C1.enteringChildren, e, S1);
           }
         }
         return {
@@ -7559,7 +7559,7 @@ class fi {
       const m = yt(this.lastMoveEventInfo, this.history), _ = this.startEvent !== null, v = kc(m.offset, { x: 0, y: 0 }) >= this.distanceThreshold;
       if (!_ && !v)
         return;
-      const { point: w } = m, { timestamp: b } = w1;
+      const { point: w } = m, { timestamp: b } = T1;
       this.history.push({ ...w, timestamp: b });
       const { onStart: A, onMove: S } = this.handlers;
       _ || (A && A(this.lastMoveEvent, m), this.startEvent = this.lastMoveEvent), S && S(this.lastMoveEvent, m);
@@ -7575,7 +7575,7 @@ class fi {
     }, !Ve(t))
       return;
     this.dragSnapToOrigin = o, this.handlers = n, this.transformPagePoint = s, this.distanceThreshold = r, this.contextWindow = i || window;
-    const a = H3(t), c = gt(a, this.transformPagePoint), { point: d } = c, { timestamp: h } = w1;
+    const a = H3(t), c = gt(a, this.transformPagePoint), { point: d } = c, { timestamp: h } = T1;
     this.history = [{ ...d, timestamp: h }];
     const { onSessionStart: f } = n;
     f && f(t, yt(c, this.history)), this.removeListeners = j3(T3(this.contextWindow, "pointermove", this.handlePointerMove), T3(this.contextWindow, "pointerup", this.handlePointerUp), T3(this.contextWindow, "pointercancel", this.handlePointerUp));
@@ -8064,7 +8064,7 @@ const Kc = {
   boxShadow: qc
 };
 function Jc(e, t, n) {
-  const s = E1(e) ? e : t3(e);
+  const s = A1(e) ? e : t3(e);
   return s.start(qe("", s, t, n)), s.animation;
 }
 const Yc = (e, t) => e.depth - t.depth;
@@ -8355,7 +8355,7 @@ function wi({ attachResizeListener: e, defaultParent: t, measureScroll: n, check
       }
       this.animationCommitId = this.animationId, this.isUpdating ? (this.isUpdating = !1, this.nodes.forEach(gl), this.nodes.forEach(hl), this.nodes.forEach(dl)) : this.nodes.forEach(G9), this.clearAllSnapshots();
       const a = I1.now();
-      w1.delta = v2(0, 1e3 / 60, a - w1.timestamp), w1.timestamp = a, w1.isProcessing = !0, ct.update.process(w1), ct.preRender.process(w1), ct.render.process(w1), w1.isProcessing = !1;
+      T1.delta = v2(0, 1e3 / 60, a - T1.timestamp), T1.timestamp = a, T1.isProcessing = !0, ct.update.process(T1), ct.preRender.process(T1), ct.render.process(T1), T1.isProcessing = !1;
     }
     didUpdate() {
       this.updateScheduled || (this.updateScheduled = !0, Fe.read(this.scheduleUpdate));
@@ -8480,7 +8480,7 @@ function wi({ attachResizeListener: e, defaultParent: t, measureScroll: n, check
       this.scroll = void 0, this.layout = void 0, this.snapshot = void 0, this.prevTransformTemplateValue = void 0, this.targetDelta = void 0, this.target = void 0, this.isLayoutDirty = !1;
     }
     forceRelativeParentToResolveTarget() {
-      this.relativeParent && this.relativeParent.resolvedRelativeTargetAt !== w1.timestamp && this.relativeParent.resolveTargetDelta(!0);
+      this.relativeParent && this.relativeParent.resolvedRelativeTargetAt !== T1.timestamp && this.relativeParent.resolveTargetDelta(!0);
     }
     resolveTargetDelta(r = !1) {
       var m;
@@ -8491,7 +8491,7 @@ function wi({ attachResizeListener: e, defaultParent: t, measureScroll: n, check
         return;
       const { layout: h, layoutId: f } = this.options;
       if (!(!this.layout || !(h || f))) {
-        if (this.resolvedRelativeTargetAt = w1.timestamp, !this.targetDelta && !this.relativeTarget) {
+        if (this.resolvedRelativeTargetAt = T1.timestamp, !this.targetDelta && !this.relativeTarget) {
           const _ = this.getClosestProjectingParent();
           _ && _.layout && this.animationProgress !== 1 ? (this.relativeParent = _, this.forceRelativeParentToResolveTarget(), this.relativeTarget = f1(), this.relativeTargetOrigin = f1(), S3(this.relativeTargetOrigin, this.layout.layoutBox, _.layout.layoutBox), j1(this.relativeTarget, this.relativeTargetOrigin)) : this.relativeParent = this.relativeTarget = void 0;
         }
@@ -8513,7 +8513,7 @@ function wi({ attachResizeListener: e, defaultParent: t, measureScroll: n, check
       var v;
       const r = this.getLead(), a = !!this.resumingFrom || this !== r;
       let c = !0;
-      if ((this.isProjectionDirty || (v = this.parent) != null && v.isProjectionDirty) && (c = !1), a && (this.isSharedProjectionDirty || this.isTransformDirty) && (c = !1), this.resolvedRelativeTargetAt === w1.timestamp && (c = !1), c)
+      if ((this.isProjectionDirty || (v = this.parent) != null && v.isProjectionDirty) && (c = !1), a && (this.isSharedProjectionDirty || this.isTransformDirty) && (c = !1), this.resolvedRelativeTargetAt === T1.timestamp && (c = !1), c)
         return;
       const { layout: d, layoutId: h } = this.options;
       if (this.isTreeAnimating = !!(this.parent && this.parent.isTreeAnimating || this.currentAnimation || this.pendingAnimation), this.isTreeAnimating || (this.targetDelta = this.relativeTarget = void 0), !this.layout || !(d || h))
@@ -11907,7 +11907,7 @@ function i8({
           )
         );
     const [s2] = await Promise.all(p1);
-    if ((V() || W()) && await s(), V() && await i(!0), n(), o(!1), r(!0), (i2 = w == null ? void 0 : w.current) != null && i2.generalInfo) {
+    if ((V() || W()) && await s(), V() && await i(!0), o(!1), r(!0), (i2 = w == null ? void 0 : w.current) != null && i2.generalInfo) {
       const K1 = new DOMParser().parseFromString((p2 = w == null ? void 0 : w.current) == null ? void 0 : p2.generalInfo, "text/html").body.textContent.trim();
       a(
         JSON.stringify({
@@ -11919,19 +11919,20 @@ function i8({
     }
     W() && await m(), x(), localStorage.getItem("aiGreeted") ? await a("Just Say: Welcome back. How can i assist you? And then follow other instructions ") : (await a(`Say: Welcome to ${((r2 = w == null ? void 0 : w.current) == null ? void 0 : r2.name) || ""}!.  How can I assist you today? And then follow other instructions`), localStorage.setItem("aiGreeted", !0));
   }, a1 = (Y) => {
+    n();
   }, R = (Y) => {
-    V() && e(Y.delta);
+    n("started"), V() && e(Y.delta);
   }, t1 = (Y) => {
     n(), W() && _(Y == null ? void 0 : Y.text);
   }, c1 = async () => {
-    n(), W() && v(), (V() || W()) && t(), S.current === !1 && (await T({
+    n("started"), W() && v(), (V() || W()) && t(), S.current === !1 && (await T({
       firstInteractionByUser: /* @__PURE__ */ new Date()
     }), S.current = !0);
   }, Q = () => {
-  }, z = () => {
     n();
+  }, z = () => {
   }, H = (Y) => {
-  }, T1 = (Y) => {
+  }, C1 = (Y) => {
   }, P1 = async (Y) => {
     await f({
       message: Y,
@@ -11939,7 +11940,7 @@ function i8({
       stopChat: d,
       sendInstructions: h
     });
-  }, C1 = () => {
+  }, S1 = () => {
     n();
   }, R1 = (Y) => {
   }, B1 = (Y) => {
@@ -11972,13 +11973,13 @@ function i8({
           H(p1);
           break;
         case "response.audio_transcript.done":
-          T1(p1);
+          C1(p1);
           break;
         case "response.function_call_arguments.done":
           await P1(p1);
           break;
         case "response.audio.done":
-          C1();
+          S1();
           break;
         case "response.text.done":
           t1(p1);
@@ -11987,10 +11988,11 @@ function i8({
           L.current = Date.now();
           break;
         case "output_audio_buffer.started":
+          n("started");
           break;
         case "response.done": {
           const { response: W2 } = p1, { usage: i2, output: p2 } = W2;
-          if (P((r2) => [...r2, { usage: i2, output: p2 }]), O.current += 1, L.current) {
+          if (n(), P((r2) => [...r2, { usage: i2, output: p2 }]), O.current += 1, L.current) {
             const r2 = Date.now() - L.current;
             k.current.push(r2), L.current = null;
             const N1 = k.current.reduce((K1, z2) => K1 + z2, 0), G1 = N1 / k.current.length;
@@ -12084,14 +12086,14 @@ const r8 = ({ dataChannelRef: e, peerRef: t, audioElementRef: n, micStreamRef: s
   } };
 }, ji = f2(), o8 = ({ children: e }) => {
   var B1;
-  const t = G(null), { storeRef: n } = $3(), s = (B1 = n == null ? void 0 : n.current) == null ? void 0 : B1.voiceProvider, { updateVoiceInteraction: i, stopSessionTimer: o } = V0(), { setIsJoined: r, setLoading: a, setAgent: c, setConnectingToAgent: d, setIsListening: h } = F0(), f = G(null), m = G(null), _ = G(null), v = G(null), w = G(null), b = () => {
-    t.current && clearTimeout(t.current), t.current = setTimeout(() => {
+  const t = G(null), { storeRef: n } = $3(), s = (B1 = n == null ? void 0 : n.current) == null ? void 0 : B1.voiceProvider, { updateVoiceInteraction: i, stopSessionTimer: o } = V0(), { setIsJoined: r, setLoading: a, setAgent: c, setConnectingToAgent: d, setIsListening: h } = F0(), f = G(null), m = G(null), _ = G(null), v = G(null), w = G(null), b = (b1 = "stopped") => {
+    t.current && clearTimeout(t.current), b1 === "stopped" && (t.current = setTimeout(() => {
       Q(), h(!1);
-    }, 15e3);
+    }, 15e3));
   }, { handleFunctionCallDone: A } = nu(), { playPCMChunk: S, initPlayer: T, stopAudio: x, completelyStopAudio: P } = au(), { resetAndStreamAudioRecording: k, recordingActive: L, audioRecorderRef: O } = ru(f), { sendToolResponse: V, sendMessage: W, sendInstructions: J } = cu({ dataChannelRef: _, provider: s, socketRef: f }), { initCartesiaTTS: a1, speakUsingCartesiaTTS: R, cancelCartesiaTTS: t1, disconnectCartesiaTTS: c1 } = n8({ playPCMChunk: S }), Q = async () => {
-    var A1;
+    var b1;
     try {
-      a(!0), await o(), await i({ sessionEnded: !0 }), d(!1), s === "openai_realtime_webrtc" && T1(), s === "azure_live" && C1(), O.current && ((A1 = O.current) == null || A1.stop(), O.current = null), L.current = !1, x(), P(), c1(), t.current && clearTimeout(t.current), t.current = null, r(!1), c(null);
+      a(!0), await o(), await i({ sessionEnded: !0 }), d(!1), s === "openai_realtime_webrtc" && C1(), s === "azure_live" && S1(), O.current && ((b1 = O.current) == null || b1.stop(), O.current = null), L.current = !1, x(), P(), c1(), t.current && clearTimeout(t.current), t.current = null, r(!1), c(null);
     } catch {
     } finally {
       a(!1);
@@ -12112,23 +12114,23 @@ const r8 = ({ dataChannelRef: e, peerRef: t, audioElementRef: n, micStreamRef: s
     initCartesiaTTS: a1,
     speakUsingCartesiaTTS: R,
     cancelCartesiaTTS: t1
-  }), { startWebRtcSession: H, stopWebRtcSession: T1 } = r8({
+  }), { startWebRtcSession: H, stopWebRtcSession: C1 } = r8({
     audioElementRef: v,
     dataChannelRef: _,
     micStreamRef: w,
     peerRef: m,
     handleVoiceEvents: z
-  }), { connectToAzureSocket: P1, disconnectAzureSocket: C1 } = s8({
+  }), { connectToAzureSocket: P1, disconnectAzureSocket: S1 } = s8({
     azureLiveSocketRef: f,
     handleVoiceEvents: z
-  }), R1 = async (A1) => {
+  }), R1 = async (b1) => {
     var Y, p1;
     try {
       if (a(!0), s === "openai_realtime_webrtc") {
-        await H({ configurations: A1 });
+        await H({ configurations: b1 });
         return;
       } else
-        await P1({ configurations: A1 });
+        await P1({ configurations: b1 });
       return "connected";
     } catch (s2) {
       return e1.error(((p1 = (Y = s2 == null ? void 0 : s2.response) == null ? void 0 : Y.data) == null ? void 0 : p1.message) || s2.message || "Failed to start chat session."), h(!1), a(!1), s2;
